@@ -1,78 +1,101 @@
 #include <iostream>
-#include <cmath>
+using namespace std;
 
-// Definir la estructura de una nota(grade)
+// Definir la estructura de una nota (grade)
 struct Grade
 {
-    int studentId, float grade;
+    int studentId;
+    float grade;
 };
 
-// Función para leer las coordenadas de varias notas
+// Función para leer las notas
 void leerNotas(Grade notas[], int n)
 {
     char respuesta;
-    std::cout << "¿Desea ingresar las notas manualmente? (s/n): ";
-    // Leer la respuesta del usuario
+    cout << "desea ingresar las notas manualmente? si(s) o no(n) ";
+    cin >> respuesta;
 
-    // Completar: Verificar si la respuesta es 's' o 'n', tener en cuenta mayúsculas y minúsculas
-    if (respuesta == <valor a comparar><Operador logico> respuesta == <valor a comparar>)
+    if (respuesta == 's' || respuesta == 'S')
     {
-        // Completar: Leer las coordenadas de cada nota
-        for ()
+        for (int i = 0; i < n; i++)
         {
-            std::cout << "Ingrese las notas del estudiante" << i + 1 << " (id, nota): ";
-            std::cin >> notas[].>> notas;
+            cout << "Ingrese los datos del estudiante " << i + 1 << " (id nota): ";
+            cin >> notas[i].studentId >> notas[i].grade;
         }
     }
     else
     {
-        // Usar valores predeterminados
-        std::cout << "Usando valores predeterminados...\n";
-        notas[0] = {1010, 1.0};  //
-        notas[1] = {1020, 1.0};  // 
-        notas[2] = {1030, 1.0};  // 
-        notas[3] = {2056, 1.0}; // 
+        cout << "usando valores predeterminados: ";
+        if (n >= 4)
+        {
+            notas[0] = {1010, 4.5};
+            notas[1] = {1020, 3.8};
+            notas[2] = {1030, 2.9};
+            notas[3] = {2056, 5.0};
+        }
+        else
+        {
+            for (int i = 0; i < n; i++)
+            {
+                notas[i].studentId = 1000+i;
+                notas[i].grade = 3.0+0.2*i;
+
+            }
+        }
     }
 }
 
-// Función para calcular la mayor magnitud
+// Función para calcular el promedio y encontrar la nota más alta
 double calcularPromedio(Grade notas[], int n, int &indiceNotaMasAlta)
 {
+    double suma = 0;
+    indiceNotaMasAlta = 0; // inicializar con el primero
 
-    return <variable>;
+    for (int i = 0; i < n; i++)
+    {
+        suma += notas[i].grade;
+        if (notas[i].grade > notas[indiceNotaMasAlta].grade)
+        {
+            indiceNotaMasAlta = i;
+        }
+    }
+    return suma / n;
 }
 
-// Función para mostrar el promedio y estdudiante con mayor nota
+// Función para mostrar el promedio y estudiante con mayor nota
 void mostrarResultado(Grade notas[], int indiceNotaMasAlta, double promedio)
 {
-    std::cout << "El id del estudiante con mejor calificación es: " << notas[]. << ", con una nota de" << notas[].grade << "\n";
-    std::cout << "La calificación promedio del arreglo es: " << promedio << std::endl;
+    cout << "El id del estudiante con mejor calificación es: "
+         << notas[indiceNotaMasAlta].studentId
+         << ", con una nota de " << notas[indiceNotaMasAlta].grade <<;
+
+    cout << "La calificación promedio del arreglo es: " << promedio << endl;
 }
 
 int main()
 {
-    <tipo> n;
+    int n;
+    cout << "Ingrese el numero de estudiantes (minimo 2): ";
+    cin >> n;
 
-    std::cout << "Ingrese el número de estudiantes (mínimo 2): ";
-    // Leer el número de notas
-    std::<funcion> >> n;
-
-    if ()
+    if (n < 2)
     {
-        std::cout << "Se necesitan al menos 2 estudiantes para determinar el promedio.\n";
+        cout << "se necesitan al menos 2 estudiantes para determinar el promedio ";
         return 1;
     }
 
-    Grade notas[n]; // Arreglo de estructuras para almacenar las coordenadas (x, y)
+    Grade *notas = new Grade[n]; // arreglo dinámico
 
-    // Leer las notas (manual o predeterminado)
-    leerNotas(<completar argumentos>);
+    // Leer las notas (manual o predeterminadas)
+    leerNotas(notas, n);
 
-    // Calcular promedio
-    <type> indiceNotaMasAlta;
-    // llamar funcion
-    //  Mostrar el resultado
-    mostrarResultado(notas, <variable>, promed...);
+    // Calcular promedio y mejor nota
+    int indiceNotaMasAlta;
+    double promedio = calcularPromedio(notas, n, indiceNotaMasAlta);
 
+    // Mostrar resultados
+    mostrarResultado(notas, indiceNotaMasAlta, promedio);
+
+    delete[] notas; // liberar memoria
     return 0;
 }
