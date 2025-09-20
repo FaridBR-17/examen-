@@ -11,7 +11,7 @@ struct Grade
 void leerNotas(Grade notas[], int n)
 {
     char respuesta;
-    std::cout << "¿Desea ingresar las notas manualmente? (s/n): ";
+    std::cout << "¿desea ingresar las notas manualmente? si(s) o no(n): ";
     // Leer la respuesta del usuario
     std::cin >> respuesta;
 
@@ -21,12 +21,12 @@ void leerNotas(Grade notas[], int n)
         // Leer las coordenadas de cada nota
         for (int i = 0; i < n; i++)
         {
-            std::cout << "Ingrese las notas del estudiante " << i + 1 << " (id, nota): ";
+            std::cout << "ingrese las notas del estudiante " << i + 1 << " (id, nota): ";
             std::cin >> notas[i].studentId >> notas[i].grade;
             
             // Validar que la nota no exceda 5.0
             while (notas[i].grade > 5.0 || notas[i].grade < 0.0) {
-                std::cout << "Error: La nota debe estar entre 0.0 y 5.0. Ingrese nuevamente: ";
+                std::cout << "error: La nota debe estar entre 0.0 y 5.0. Ingrese nuevamente: ";
                 std::cin >> notas[i].grade;
             }
         }
@@ -34,7 +34,7 @@ void leerNotas(Grade notas[], int n)
     else
     {
         // Usar valores predeterminados
-        std::cout << "Usando valores predeterminados...\n";
+        std::cout << "usando valores predeterminados... ";
         notas[0] = {1010, 1.0};  //
         notas[1] = {1020, 1.0};  // 
         notas[2] = {1030, 1.0};  // 
@@ -63,21 +63,21 @@ double calcularPromedio(Grade notas[], int n, int &indiceNotaMasAlta)
 // Función para mostrar el promedio y estudiante con mayor nota
 void mostrarResultado(Grade notas[], int indiceNotaMasAlta, double promedio)
 {
-    std::cout << "El id del estudiante con mejor calificación es: " << notas[indiceNotaMasAlta].studentId << ", con una nota de " << notas[indiceNotaMasAlta].grade << "\n";
-    std::cout << "La calificación promedio del arreglo es: " << promedio << std::endl;
+    std::cout << "el id del estudiante con mejor calificación es: " << notas[indiceNotaMasAlta].studentId << ", con una nota de " << notas[indiceNotaMasAlta].grade << "\n";
+    std::cout << "la calificación promedio del arreglo es: " << promedio << std::endl;
 }
 
 int main()
 {
     int n;
 
-    std::cout << "Ingrese el número de estudiantes (mínimo 2): ";
+    std::cout << "ingrese el numero de estudiantes (minimo 2): ";
     // Leer el número de notas
     std::cin >> n;
 
     if (n < 2)
     {
-        std::cout << "Se necesitan al menos 2 estudiantes para determinar el promedio.\n";
+        std::cout << "se necesittan al menos 2 estudiantes para determinar el promedio.  ";
         return 1;
     }
 
