@@ -15,14 +15,20 @@ void leerNotas(Grade notas[], int n)
     // Leer la respuesta del usuario
     std::cin >> respuesta;
 
-    // Completar: Verificar si la respuesta es 's' o 'n', tener en cuenta mayúsculas y minúsculas
+    // Verificar si la respuesta es 's' o 'n', tener en cuenta mayúsculas y minúsculas
     if (respuesta == 's' || respuesta == 'S')
     {
-        // Completar: Leer las coordenadas de cada nota
+        // Leer las coordenadas de cada nota
         for (int i = 0; i < n; i++)
         {
             std::cout << "Ingrese las notas del estudiante " << i + 1 << " (id, nota): ";
             std::cin >> notas[i].studentId >> notas[i].grade;
+            
+            // Validar que la nota no exceda 5.0
+            while (notas[i].grade > 5.0 || notas[i].grade < 0.0) {
+                std::cout << "Error: La nota debe estar entre 0.0 y 5.0. Ingrese nuevamente: ";
+                std::cin >> notas[i].grade;
+            }
         }
     }
     else
@@ -54,7 +60,7 @@ double calcularPromedio(Grade notas[], int n, int &indiceNotaMasAlta)
     return suma / n;
 }
 
-// Función para mostrar el promedio y estdudiante con mayor nota
+// Función para mostrar el promedio y estudiante con mayor nota
 void mostrarResultado(Grade notas[], int indiceNotaMasAlta, double promedio)
 {
     std::cout << "El id del estudiante con mejor calificación es: " << notas[indiceNotaMasAlta].studentId << ", con una nota de " << notas[indiceNotaMasAlta].grade << "\n";
@@ -83,8 +89,7 @@ int main()
     // Calcular promedio
     int indiceNotaMasAlta;
     double promedio = calcularPromedio(notas, n, indiceNotaMasAlta);
-    // llamar funcion
-    //  Mostrar el resultado
+    // Mostrar el resultado
     mostrarResultado(notas, indiceNotaMasAlta, promedio);
 
     return 0;
