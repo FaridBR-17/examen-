@@ -11,29 +11,29 @@ float divide(float a, float b) { return a / b; }
 int main(int argc, char* argv[])
 {
     if (argc != 4) {
-        cerr << "Uso: " << argv[0] << " <operando1> <operador> <operando2>\n";
+        cerr << "instruccion: " << argv[0] << " <valor 1> <signo> <valor 2>\n";
         return 1;
     }
 
 
-    float op1 = atof(argv[1]);
-    float op2 = atof(argv[3]);
+    float x = atof(argv[1]);
+    float y = atof(argv[3]);
     string operador = argv[2];
 
     float resultado = 0;
 
     if (operador == "+") {
-        resultado = add(op1, op2);
+        resultado = add(x, y);
     } else if (operador == "-") {
-        resultado = subtract(op1, op2);
+        resultado = subtract(x, y);
     } else if (operador == "*" || operador == "x" || operador == "X") {
-        resultado = multiply(op1, op2);
+        resultado = multiply(x, y);
     } else if (operador == "/") {
-        if (op2 == 0) {
-            cerr << "Error: División por cero.\n";
+        if (y == 0) {
+            cerr << " División por cero.";
             return 1;
         }
-        resultado = divide(op1, op2);
+        resultado = divide(x, y);
     } else {
         cerr << "Error: Operador no válido. Use +, -, *, x o /.\n";
         return 1;
