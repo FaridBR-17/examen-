@@ -9,8 +9,8 @@ bool palindromo(int x) {
     long long invertido = 0;
 
     while (x > 0) {
-        int digit = x % 10;                                                                                                                                                                
-        invertido= invertido * 10 + digit; 
+        int digito = x % 10;                                                                                                                                                                
+        invertido= invertido * 10 + digito; 
         x /= 10;                    
     }
 
