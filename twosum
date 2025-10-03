@@ -1,0 +1,49 @@
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> seen;
+        
+        for (int i = 0; i < nums.size(); i++) {
+            int k = target - nums[i];
+            
+            if (seen.find(k) != seen.end()) {
+                return {seen[k], i};
+            }
+            
+            seen[nums[i]] = i;
+        }
+        
+        return {};
+    }
+};
+
+int main() {
+    int n, target;
+    
+    cout << "Cuantos numeros tendra el arreglo? ";
+    cin >> n;
+
+    vector<int> numbers(n);
+    for (int i = 0; i < n; i++) {
+        cout << "Numero " << i + 1 << ": ";
+        cin >> numbers[i];
+    }
+
+    cout << "Valor objetivo a sumar: ";
+    cin >> target;
+
+    Solution sol;
+    vector<int> result = sol.twoSum(numbers, target);
+
+    if (!result.empty()) {
+        cout << "Los indices que suman " << target << " son: " 
+             << result[0] << " y " << result[1] << endl;
+    }
+
+    return 0;
+}
