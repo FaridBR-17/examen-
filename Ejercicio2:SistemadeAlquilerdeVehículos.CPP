@@ -96,32 +96,32 @@ public:
             if (v->getPlaca() == placa) {
                 if (v->estaDisponible()) {
                     v->alquilar();
-                    cout << "✅ Vehículo alquilado exitosamente.\n";
+                    cout << "Vehículo alquilado";
                 } else {
-                    cout << "❌ Ese vehículo ya está alquilado.\n";
+                    cout << "Este vehículo esta siendo usado";
                 }
                 return;
             }
         }
-        cout << "❌ No se encontró un vehículo con esa placa.\n";
+        cout << "No se encontró un vehículo";
     }
 
     void devolverVehiculo() {
         string placa;
-        cout << "Ingrese la placa del vehículo a devolver: ";
+        cout << "Ingrese la placa del vehículo que quiere devolver: ";
         cin >> placa;
         for (auto v : vehiculos) {
             if (v->getPlaca() == placa) {
                 if (!v->estaDisponible()) {
                     v->devolver();
-                    cout << "✅ Vehículo devuelto exitosamente.\n";
+                    cout << "Vehículo devuelto ";
                 } else {
-                    cout << "❌ Ese vehículo no estaba alquilado.\n";
+                    cout << "Ese vehículo no estaba alquilado";
                 }
                 return;
             }
         }
-        cout << "❌ No se encontró un vehículo con esa placa.\n";
+        cout << " No se encontró un vehículo con esta placa";
     }
 
     ~SistemaAlquiler() {
@@ -166,10 +166,10 @@ int main() {
                 sistema.devolverVehiculo();
                 break;
             case 5:
-                cout << "👋 Saliendo del sistema...\n";
+                cout << "Saliendo";
                 break;
             default:
-                cout << "❌ Opción inválida, intente de nuevo.\n";
+                cout << "Opción inválida";
         }
     } while (opcion != 5);
 
