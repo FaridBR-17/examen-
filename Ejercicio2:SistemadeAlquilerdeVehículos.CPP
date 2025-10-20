@@ -44,7 +44,7 @@ public:
 
 class Bicicleta : public Vehiculo {
 private:
-    string tipo; // Montaña, Ruta, etc.
+    string tipo;
 
 public:
     Bicicleta(string m, string mo, string p, string t)
