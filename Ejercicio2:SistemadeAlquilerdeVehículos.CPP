@@ -133,9 +133,9 @@ public:
 int main() {
     SistemaAlquiler sistema;
 
-    // Banco inicial de 3 vehículos
-    sistema.registrarVehiculo(new Auto("Toyota", "Corolla", "ABC123", 5));
-    sistema.registrarVehiculo(new Auto("Chevrolet", "Spark", "XYZ789", 4));
+   
+    sistema.registrarVehiculo(new Auto("Toyota", "Corolla", "SEX777", 5));
+    sistema.registrarVehiculo(new Auto("Chevrolet", "Camaro", "YLA261", 4));
     sistema.registrarVehiculo(new Bicicleta("GW", "Rally", "BIK001", "Montaña"));
 
     cout << "\n======= BANCO INICIAL DE VEHÍCULOS =======\n";
