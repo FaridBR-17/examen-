@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/Biblioteca.dir/src/main.cpp.o CMakeFiles/Biblioteca.dir/src/Libro.cpp.o CMakeFiles/Biblioteca.dir/src/Biblioteca.cpp.o -o Biblioteca 
