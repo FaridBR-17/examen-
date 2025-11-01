@@ -43,12 +43,6 @@ public:
     std::string obtenerResumen() const;
 
     /**
-     * @brief Obtiene el promedio del estudiante
-     * @return Promedio del estudiante
-     */
-    float obtenerPromedio() const { return promedio; }
-
-    /**
      * @brief Verifica si cumple los créditos requeridos para graduarse.
      * @param creditosRequeridos Créditos necesarios.
      * @return true si cumple los requisitos, false en caso contrario.
