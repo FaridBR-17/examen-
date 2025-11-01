@@ -3,9 +3,7 @@ project(ProyectoEstudiante)
 
 set(CMAKE_CXX_STANDARD 17)
 
-include_directories(include)
-
-add_executable(ProyectoEstudiante
-    src/main.cpp
-    src/Estudiante.cpp
+add_executable(final
+    final.cpp
+    "final 2 tercio.cpp"
 )
