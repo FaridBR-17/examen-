@@ -22,7 +22,6 @@ std::string Estudiante::obtenerResumen() const {
     oss << "Nombre: " << nombre
         << " | Programa: " << programa
         << " | Promedio: " << promedio
-        << " | Créditos: " << creditosAprobados;
+        << " | Creditos: " << creditosAprobados;
     return oss.str();
 }
-
