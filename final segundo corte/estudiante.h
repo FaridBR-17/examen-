@@ -4,55 +4,56 @@
 #include <string>
 
 /**
- * @brief Clase que representa un estudiante con su información académica.
+ * @brief Clase que representa un estudiante con su información academica.
+ *Permite gestionar los datos de los estudiantes.
+ *programa academico, promedio, creditos aprobados.
  */
 class Estudiante {
 private:
-    std::string nombre;        ///< Nombre del estudiante
-    int programa;              ///< Código del programa
-    float promedio;            ///< Promedio acumulado
-    int creditosAprobados;     ///< Créditos aprobados
+    std::string nombre;                       ///< Nombre y apellido del estudiante
+    int programa;                             ///< Codigo del programa
+    float promedio;                           ///< Promedio acumulado
+    int creditosAprobados;                    ///< Creditos aprobados
 
 public:
     /**
-     * @brief Constructor que inicializa todos los atributos.
-     * @param nombre Nombre del estudiante.
-     * @param programa Código del programa.
-     * @param promedio Promedio inicial.
-     * @param creditosAprobados Créditos aprobados iniciales.
+     * @brief Crea un nuevo estudiante con su info inicial.
+     * @param nombre Nombre y apellido.
+     * @param programa Codigo del programa.
+     * @param promedio Promedio inicial de calificaciones.
+     * @param creditosAprobados cantidasd de creditos aprobados.
      */
     Estudiante(const std::string& nombre, int programa, float promedio, int creditosAprobados);
 
     /**
-     * @brief Registra una nueva nota y actualiza el promedio ponderado.
+     * @brief Registra una nueva nota y vuelve a calcular el promedio ponderado.
      * @param nota Nota obtenida.
-     * @param creditos Créditos de la materia.
+     * @param creditos Creditos de la materia.
      */
     void registrarNota(float nota, int creditos);
 
     /**
-     * @brief Suma créditos al total de créditos aprobados.
-     * @param creditos Créditos a añadir.
+     * @brief agrega creditos al total de creditos aprobados sain alterar el promedio.
+     * @param creditos cantidad de creditos a sumar al total.
      */
     void agregarCreditos(int creditos);
 
     /**
-     * @brief Devuelve un resumen con los datos principales del estudiante.
-     * @return Cadena con la información general.
+     * @brief genera un texto cont toda la info importante del estudiante.
+     * @return un tipo string nuevo con nombrwe, programa, promedio y cretidos.
      */
     std::string obtenerResumen() const;
 
     /**
-     * @brief Verifica si cumple los créditos requeridos para graduarse.
-     * @param creditosRequeridos Créditos necesarios.
-     * @return true si cumple los requisitos, false en caso contrario.
+     * @brief verifica si cumple los créditos requeridos para graduarse.
+     * @param creditosRequeridos Creditos necesarios.
+     * @return true si tiene los creditos necesarios, false sino.
      */
     bool cumpleRequisitosGrado(int creditosRequeridos) const;
 };
 
-/// Implementación a mano del método solicitado
 inline bool Estudiante::cumpleRequisitosGrado(int creditosRequeridos) const {
     return creditosAprobados >= creditosRequeridos;
 }
 
-#endif // ESTUDIANTE_H
+#endif 
