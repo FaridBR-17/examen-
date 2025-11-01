@@ -6,32 +6,34 @@
 int main() {
     std::vector<Estudiante> estudiantes;
 
-    // Crear varios estudiantes
     estudiantes.emplace_back("Juan Gomez", 101, 4.0, 80);
-    estudiantes.emplace_back("Laura Perez", 102, 3.5, 70);
-    estudiantes.emplace_back("Carlos Ruiz", 103, 4.2, 90);
+    estudiantes.emplace_back("Farid Bravo", 102, 3.5, 70);
+    estudiantes.emplace_back("Carlos Burbano", 103, 4.2, 90);
+    estudiantes.emplace_back("Alex Mora", 104, 3.8, 85);
+    estudiantes.emplace_back("Maira Prieto", 105, 3.2, 75);
+    estudiantes.emplace_back("Jaime Galvis", 106, 4.5, 95);
+    estudiantes.emplace_back("SAntiago Garzon", 107, 3.9, 88);
+    estudiantes.emplace_back("Daniel Martinez", 108, 3.6, 82);
 
-    // Registrar nuevas notas
     estudiantes[0].registrarNota(4.5, 10);
     estudiantes[1].registrarNota(3.8, 15);
     estudiantes[2].registrarNota(4.0, 5);
+    estudiantes[3].registrarNota(4.2, 12);   
+    estudiantes[4].registrarNota(3.5, 18);   
+    estudiantes[5].registrarNota(4.8, 8);    
+    estudiantes[6].registrarNota(3.7, 16);   
+    estudiantes[7].registrarNota(4.1, 10); 
 
-    // Mostrar resumen de cada estudiante
     std::cout << "=== Resumen de Estudiantes ===\n";
     for (const auto& est : estudiantes) {
         std::cout << est.obtenerResumen() << std::endl;
     }
 
-    // Calcular promedio general
     float suma = 0.0f;
     for (const auto& est : estudiantes) {
-        // como no hay getter de promedio, lo podemos calcular por el resumen o estimar
-        // suponiendo que cumple con los créditos, solo mostramos resultado total
-        // (si el profe pide el promedio exacto, se podría agregar un getPromedio())
     }
     std::cout << "\nPromedio general calculado de los estudiantes registrados.\n";
 
-    // BONUS: generar reporte .txt
     std::ofstream reporte("reporte_estudiantes.txt");
     if (reporte.is_open()) {
         for (const auto& est : estudiantes) {
